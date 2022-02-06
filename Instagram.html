@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/0bee541048.js" crossorigin="anonymous"></script>
+    <title>Instagram</title>
+</head>
+
+<body>
+
+    <header>
+        <div>Instagam</div>
+        <div>
+            <i class="far fa-plus-square"></i>
+            <i class="far fa-heart"></i>
+            <i class="far fa-paper-plane"></i>
+        </div>
+
+
+    </header>
+    <input type="text">
+    <button id="button" onclick="getData();">Download Image</button>
+    <div id="fotoCollection"></div>
+
+
+</body>
+
+<script>
+    let foto = []
+
+    async function getData() {
+        let response = await fetch('https://api.unsplash.com/collections?client_id=HDHRkbYTckPzkf4KvP-1mT8vqUa9t6yyiSEjNAC3oM0')
+        foto = await response.json()
+        downloadImg(foto)
+
+    }
+
+    function downloadImg(foto) {
+        let collect = document.getElementById("fotoCollection")
+        for (let i = 0; i < foto.length; i++) {
+
+
+            collect.insertAdjacentHTML('beforeend',
+                `<img src="${foto[i].cover_photo.urls.small}">`
+            );
+        }
+
+    }
+</script>
+
+
+<style>
+    #fotoCollection {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+        width: 50%;
+        justify-items: center;
+        margin: auto;
+    }
+    
+    img {
+        height: 400px;
+        width: 100%;
+        border-radius: 10px;
+        object-fit: cover;
+    }
+</style>
+
+</body>
+
+</html>
