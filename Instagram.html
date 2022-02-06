@@ -8,18 +8,22 @@
     <link rel="stylesheet" href="Instagram.css">
     <script src="Instagram.js" defer></script>
     <script src="https://kit.fontawesome.com/0bee541048.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <title>Instagram</title>
 </head>
 
 <body>
+
+    <!-- Logo, Input e bottoni laterali -->
 
     <div class="container">
         <header>
             <img id="logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/800px-Instagram_logo.svg.png" alt="">
             <div id="input-bar">
                 <input type="text" id="input">
-                <button id="button" onclick="getData();">Download</button>
-                <button id="button-search" onclick="searchImage();">Search</button>
+                <button id="button" onclick="downloadImg();">Download</button>
+                <button id="button-search" onclick="searchImg();">Search</button>
+                <i class="far fa-trash-alt" onclick="deleteAll();"></i>
             </div>
             <div>
                 <i class="far fa-plus-square" style="font-size:28px;"></i>
@@ -28,14 +32,32 @@
             </div>
         </header>
 
+        <!-- Foto profilo -->
+
         <aside>
-            <img src="" alt="Avatar1.jpg" class="round-img">
-            <img src="" alt="Avatar2.jpg" class="round-img">
-            <img src="" alt="" class="round-img">
-            <img src="" alt="" class="round-img">
+            <div>
+                <img src="./Avatar1.jpg" alt="" class="round-img">
+                <div class="tag-name">Rodolfo</div>
+            </div>
+
+            <div>
+                <img src="./Avatar2.jpg" alt="" class="round-img">
+                <div class="tag-name">Clotilde</div>
+            </div>
+
+            <div>
+                <img src="./Avatar3.jpg" alt="" class="round-img">
+                <div class="tag-name">Giuditta</div>
+            </div>
+
+            <div>
+                <img src="./Avatar4.jpg" alt="" class="round-img">
+                <div class="tag-name">Roberta</div>
+            </div>
         </aside>
+        <hr>
 
-
+        <!-- Foto download -->
 
         <div id="fotoCollection"></div>
     </div>
